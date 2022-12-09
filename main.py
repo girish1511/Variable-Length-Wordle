@@ -1,6 +1,7 @@
 import os
 import requests
 import json
+import time
 
 DIR = os.path.dirname(__file__)
 TREE_PATH = os.path.join(DIR,'word_tree.json')
@@ -35,16 +36,22 @@ def main():
     #https://github.com/dwyl/english-words
     with open('words_alpha.txt','r') as f:
         data = f.read().splitlines()
-        
+    
+    # start = time.time()
     if os.path.exists(TREE_PATH):
+        print("Local cache found!")
+        print("Loading from cache...")
         with open(TREE_PATH, 'r') as f:
             tree = json.load(f)
     else:
+        print("Local cache not found!")
+        print("Generating word tree...")
         tree = create_tree(data)
         with open(TREE_PATH, 'w') as f:
             json.dump(tree, f)
+    # print(f"Time taken for loading data: {time.time()-start}s")
             
-    word_info = get_word_info('hello')
+    # word_info = get_word_info('hello')
             
 if __name__=="__main__":
     main()
