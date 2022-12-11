@@ -1,5 +1,7 @@
 import random
 import os
+import time
+import sys
 
 word = "apple"
 letters = {chr(i): 0 for i in range(65,91)}
@@ -63,6 +65,9 @@ def play(word, ):
                 if len(word_guess) == len(word):
                     break
                 print(f"Please enter a word with excatly {len(word)} letters only !!")
+                sys.stdout.write('\x1b[1A')
+                sys.stdout.write('\x1b[2K')
+                time.sleep(1)
             guesses -= 1
             blank_list = update(word, word_guess)
             if blank_list.count('*') == len(word):
