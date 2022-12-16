@@ -1,6 +1,6 @@
 # Variable-Length-Wordle
 
-A python implementation of the famous New York Times Wordle game for vairable word lengths.
+A python implementation of the famous New York Times Wordle game for vairable word lengths. A good way to increase your vocabulary!
 
 ## Description:
 ### Files and initialization
