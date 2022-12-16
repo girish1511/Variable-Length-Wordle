@@ -1,6 +1,6 @@
 # Variable-Length-Wordle
 
-A python implementation of the famous New York Times Wordle game for vairable word lengths.
+A python implementation of the famous New York Times Wordle game for vairable word lengths. A good way to increase your vocabulary!
 
 ## Description:
 ### Files and initialization
@@ -22,3 +22,8 @@ Only `requests` module is required for the program.
 ## Data Structure
 - `word_tree` is a tree structure made up of letters of the words as nodes. The tree is further segregated by lengths of the words. This gives easy accesbility for the program while getting possible letters in the game.
 - `len_tree` is a dictionary with keys as word length and values are list of words with corresponding word length as key.
+
+## References
+- Single character reading - [StackOverflow](https://stackoverflow.com/a/36974338)
+- `words_alpha.txt` file taken from [GitHub source](https://github.com/dwyl/english-words)
+- [Dictionary API](https://dictionaryapi.dev/)
