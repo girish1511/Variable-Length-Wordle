@@ -5,6 +5,7 @@ import sys
 import utils
 
 #This function is the only one, among the entire code, taken from the internet and not my own.
+#https://stackoverflow.com/a/36974338
 def getChar():
     """
     Accepts only a single character from the terminal as an input, and the character is read without 
@@ -217,10 +218,10 @@ def intro_display():
 def get_random_word(len_data):
     """
     Function asks the user if they want to decide the length of the word to be played. If the user
-    doesn't then the program randomly selects one. The length of the word is kept between 4 and 8
+    doesn't then the program randomly selects one. The length of the word is kept between 4 and 6
     (both inclusive) to ensure a fun, stress-free game. Another reason for the upper limit is that
     for some reason the limit to the number of lines allowed to move up the terminal via escape 
-    sequence is 20. This might be a local error, nevertheless, to avoid issues the upper limit is
+    sequence is 20(not entirely sure). This might be a local error, nevertheless, to avoid issues the upper limit is
     set to 6.
     
     With the <word_len> decided as above, the program selected a word of length <word_len> by using
@@ -242,14 +243,13 @@ def get_random_word(len_data):
     if yes("Would you like to select how many lettered word you want to play the game with: "):
         while(True):
             try:
-                word_len = int(input(f"Enter how many lettered word you want to play the game with \
-                                     (between {l_lim} and {u_lim} both inclusive): "))
+                word_len = int(input(f"Enter how many lettered word you want to play the game with(between {l_lim} and {u_lim} both inclusive): "))
             except:
                 print("Please enter a numeric value!!!")
                 
             if l_lim<=word_len<=u_lim:
                 break
-            print('Please enter length between 3 and 8 (both inclusive)!!')
+            print(f'Please enter length between {l_lim} and {u_lim} (both inclusive)!!')
     else:
         print("Randomly selecting the length of the word!!!")
         word_len = random.randint(l_lim,u_lim)
@@ -264,9 +264,6 @@ def result_display(fl, word):
     API fails to get a definition, then a google search link is provided for the
     convenience of the user
     """
-    #The set of 3 lines below is used to reposition and clear the terminal for a neat
-    #display of results
-
     
     sys.stdout.write('\x1b[K\n'*3) #Clears the next 3 lines
     
